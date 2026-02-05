@@ -768,9 +768,48 @@ footer {
         padding: 0 30px;
     }
 
+    .nav-container {
+        top: 15px;
+    }
+
+    .glass-nav {
+        padding: 6px;
+    }
+
+    .glass-nav a {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+        padding: 8px 12px;
+    }
+
     .hero {
         grid-template-columns: 1fr;
         height: auto;
+        padding: 120px 0 60px;
+    }
+
+    .hero-content {
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: clamp(2.2rem, 7vw, 4rem);
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 24px;
+        font-size: 0.85rem;
     }
 
     .hero-visual {
@@ -816,11 +855,11 @@ footer {
     .about-headline {
         font-size: 2rem;
     }
-    
+
     .about-description {
         font-size: 1rem;
     }
-    
+
     .about-cta {
         width: 100%;
         text-align: center;
@@ -839,5 +878,68 @@ footer {
     .footer-copyright,
     .footer-credit {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .glass-nav a {
+        font-size: 0.6rem;
+        padding: 6px 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 100px 0 40px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .floating-card {
+        padding: 12px 16px;
+    }
+
+    .card-label {
+        font-size: 0.85rem;
+    }
+
+    .skill-card {
+        padding: 24px 16px;
+    }
+
+    .about-headline {
+        font-size: 1.5rem;
+    }
+
+    .resume-title {
+        font-size: 1.8rem;
+    }
+
+    .skills-title {
+        font-size: 1.8rem;
+    }
+
+    .footer-logo {
+        font-size: 1.1rem;
+    }
+
+    .footer-section-title {
+        font-size: 0.75rem;
     }
 }
