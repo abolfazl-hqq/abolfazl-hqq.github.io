@@ -559,6 +559,199 @@ h1 {
     color: var(--muted-color);
 }
 
+/* --- 7a. PROJECT DETAIL PAGE --- */
+.project-detail-header {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.project-detail-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 0;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--muted-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+    transform: translateX(-4px);
+}
+
+.project-year {
+    color: var(--muted-color);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.project-hero-image {
+    width: 100%;
+    padding: 0 40px 80px 40px;
+}
+
+.full-width-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    display: block;
+}
+
+.full-width-image.loaded {
+    opacity: 1;
+}
+
+.project-detail-content {
+    padding-bottom: 100px;
+}
+
+.detail-content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 80px;
+}
+
+.detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.detail-section p {
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-list li {
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.feature-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.tech-tag {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--muted-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--accent-color);
+}
+
+.project-link-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: fit-content;
+}
+
+.project-link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+    background-color: #f0f0f0;
+}
+
+/* --- PROJECT IMAGE LINK HOVER EFFECT --- */
+.resume-image-link {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.resume-image-placeholder {
+    transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.resume-image-link:hover .resume-image-placeholder {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.resume-image-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.resume-image-link:hover .resume-image-hint {
+    opacity: 1;
+}
+
 /* --- 8. FOOTER --- */
 footer {
     background: linear-gradient(180deg, rgba(5, 5, 5, 0) 0%, rgba(10, 10, 10, 0.8) 100%);
@@ -758,6 +951,15 @@ footer {
         margin: 0 auto;
     }
 
+    .detail-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .project-hero-image {
+        padding: 0 30px 60px 30px;
+    }
+
     .about-description {
         max-width: 100%;
     }
@@ -865,6 +1067,28 @@ footer {
         text-align: center;
     }
 
+    .project-detail-header {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    .project-detail-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-hero-image {
+        padding: 0 20px 60px 20px;
+    }
+
+    .detail-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .detail-section h2 {
+        font-size: 1.1rem;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -933,6 +1157,14 @@ footer {
 
     .skills-title {
         font-size: 1.8rem;
+    }
+
+    .project-detail-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-hero-image {
+        padding: 0 15px 40px 15px;
     }
 
     .footer-logo {
