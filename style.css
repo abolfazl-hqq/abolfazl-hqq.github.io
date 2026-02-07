@@ -266,7 +266,7 @@ h1 {
     letter-spacing: -5px;
     margin-bottom: 30px;
     background: linear-gradient(to bottom right, var(--accent-color) 50%, #444 100%);
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -290,7 +290,7 @@ h1 {
 /* --- 6. RESUME SECTION --- */
 .resume-section {
     padding-top: 60px;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 .resume-header {
@@ -756,7 +756,7 @@ h1 {
 footer {
     background: linear-gradient(180deg, rgba(5, 5, 5, 0) 0%, rgba(10, 10, 10, 0.8) 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 80px 0 40px;
+    padding: 80px 20px 40px ;
     color: var(--muted-color);
 }
 
@@ -771,10 +771,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
-}
-
-.footer-section:first-child {
-    margin-left: 30px;
 }
 
 .footer-logo {
