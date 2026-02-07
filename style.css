@@ -263,7 +263,7 @@ h1 {
     font-size: clamp(3.5rem, 10vw, 7.5rem);
     line-height: 0.95;
     font-weight: 800;
-    letter-spacing: -5px;
+    letter-spacing: 0;
     margin-bottom: 30px;
     background: linear-gradient(to bottom right, var(--accent-color) 50%, #444 100%);
     background-clip: text;
@@ -1008,7 +1008,7 @@ footer {
     }
 
     h1 {
-        font-size: clamp(2.8rem, 8vw, 5rem);
+        font-size: clamp(3rem, 8vw, 5rem);
         margin-bottom: 12px;
     }
 
@@ -1138,7 +1138,7 @@ footer {
     }
 
     h1 {
-        font-size: clamp(3.2rem, 9vw, 5rem);
+        font-size: clamp(3.5rem, 10vw, 5rem);
         line-height: 1;
         margin-bottom: 8px;
     }
