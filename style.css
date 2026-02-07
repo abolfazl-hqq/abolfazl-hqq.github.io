@@ -266,7 +266,7 @@ h1 {
     letter-spacing: -5px;
     margin-bottom: 30px;
     background: linear-gradient(to bottom right, var(--accent-color) 50%, #444 100%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
