@@ -39,14 +39,17 @@
         </section>
     </div>
 
-    <section class="project-hero-image">
-        <img
-            id="project-image"
-            alt="Project preview"
-            class="full-width-image"
-            loading="lazy"
-            onload="this.classList.add('loaded')"
-        >
+    <section class="project-hero-image slider-container" id="image-slider">
+        <div class="slider-wrapper">
+            <div class="slider-track" id="slider-track"></div>
+            <button class="slider-button slider-prev" id="slider-prev" aria-label="Previous image">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-button slider-next" id="slider-next" aria-label="Next image">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+        </div>
+        <div class="slider-dots" id="slider-dots"></div>
     </section>
 
     <div class="container">
@@ -117,12 +120,14 @@
     </footer>
 
     <script>
-        // Project data
         const projects = {
             trendbuy: {
                 title: "TrendBuy",
                 year: "2024",
-                image: "https://github.com/abolfazl-hqq/trend_buy/raw/main/shopappui.png",
+                images: [
+                    "https://github.com/abolfazl-hqq/trend_buy/raw/main/shopappui.png",
+                    "https://github.com/abolfazl-hqq/trend_buy/raw/main/trendbuy_mockup.png"
+                ],
                 overview: "TrendBuy is a modern e-commerce mobile application designed to help users discover and purchase trending products effortlessly. Built with Flutter and Firebase, it provides a seamless shopping experience across both iOS and Android platforms.",
                 features: [
                     "Browse trending products with real-time updates",
@@ -140,7 +145,9 @@
             cashmaster: {
                 title: "CashMaster",
                 year: "2024",
-                image: "https://github.com/abolfazl-hqq/cash_app/raw/main/mainUI.png",
+                images: [
+                    "https://github.com/abolfazl-hqq/cash_app/raw/main/mainUI.png"
+                ],
                 overview: "CashMaster is a sleek and intuitive Flutter application designed to help users keep track of their daily spending with ease. It provides comprehensive financial management tools to monitor expenses, set budgets, and achieve financial goals.",
                 features: [
                     "Track daily expenses with categorization",
@@ -158,7 +165,9 @@
             tandis_clothing: {
                 title: "Tandis Clothing Shop",
                 year: "2024",
-                image: "https://github.com/abolfazl-hqq/tandis_clothing/raw/main/preview.png",
+                images: [
+                    "https://github.com/abolfazl-hqq/tandis_clothing/raw/main/preview.png"
+                ],
                 overview: "Tandis Clothing Shop is a full-featured e-commerce platform designed to provide users with a seamless shopping experience for fashion and apparel products. The platform includes advanced filtering, product discovery, and a secure checkout process to maximize customer satisfaction and conversion rates.",
                 features: [
                     "Responsive product catalog with advanced filtering",
@@ -179,6 +188,71 @@
         };
 
         // Load project data from URL parameter
+        let currentSlide = 0;
+        let totalSlides = 0;
+
+        function initSlider(images) {
+            totalSlides = images.length;
+            const sliderTrack = document.getElementById('slider-track');
+            const sliderDots = document.getElementById('slider-dots');
+
+            // Clear existing slides and dots
+            sliderTrack.innerHTML = '';
+            sliderDots.innerHTML = '';
+
+            // Create image slides
+            images.forEach((image, index) => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = `Project slide ${index + 1}`;
+                img.className = 'slider-image';
+                img.loading = 'lazy';
+                img.onload = function() {
+                    this.classList.add('loaded');
+                };
+                sliderTrack.appendChild(img);
+
+                // Create dot for each slide
+                const dot = document.createElement('button');
+                dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.addEventListener('click', () => goToSlide(index));
+                sliderDots.appendChild(dot);
+            });
+
+            // Show only slider buttons/dots if there are multiple images
+            document.getElementById('slider-prev').style.display = totalSlides > 1 ? 'flex' : 'none';
+            document.getElementById('slider-next').style.display = totalSlides > 1 ? 'flex' : 'none';
+            document.getElementById('slider-dots').style.display = totalSlides > 1 ? 'flex' : 'none';
+
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const sliderTrack = document.getElementById('slider-track');
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update dots
+            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
         function loadProject() {
             const urlParams = new URLSearchParams(window.location.search);
             const projectName = urlParams.get('project');
@@ -197,11 +271,12 @@
             // Update page content
             document.getElementById('project-title').textContent = project.title;
             document.getElementById('project-year').textContent = project.year;
-            document.getElementById('project-image').src = project.image;
-            document.getElementById('project-image').alt = `${project.title} preview`;
             document.getElementById('project-overview').textContent = project.overview;
             document.getElementById('project-role').textContent = project.role;
             document.getElementById('project-github').href = project.github;
+
+            // Initialize slider
+            initSlider(project.images);
 
             // Populate features list
             const featuresList = document.getElementById('project-features');
@@ -224,7 +299,13 @@
         }
 
         // Load project when DOM is ready
-        document.addEventListener('DOMContentLoaded', loadProject);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProject();
+
+            // Attach slider button listeners
+            document.getElementById('slider-prev').addEventListener('click', prevSlide);
+            document.getElementById('slider-next').addEventListener('click', nextSlide);
+        });
     </script>
 
 </body>
