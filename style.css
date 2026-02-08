@@ -1141,6 +1141,7 @@ footer {
         font-size: clamp(3.5rem, 10vw, 5rem);
         line-height: 1;
         margin-bottom: 8px;
+        letter-spacing: 2px;
     }
 
     .subtitle {
