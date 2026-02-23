@@ -86,15 +86,17 @@ function initSlider(images) {
     sliderDots.innerHTML = '';
 
     // Loop through each image and create the necessary HTML elements
+    // Use the HTML template to create slides so markup (frame + img) lives in HTML
+    const template = document.getElementById('slide-template');
     images.forEach((image, index) => {
-        // Create image element
-        const img = document.createElement('img');
+        const slide = template.content.firstElementChild.cloneNode(true);
+        const img = slide.querySelector('.slider-image');
+        const frame = slide.querySelector('.banner-frame');
+
         img.src = image;
         img.alt = `Project slide ${index + 1}`;
-        img.className = 'slider-image';
         img.loading = 'lazy';
 
-        // Add debug logging to see if images load or fail
         img.onload = function() {
             console.log(`✓ Image ${index + 1} loaded successfully: ${image}`);
             this.classList.add('loaded');
@@ -102,14 +104,15 @@ function initSlider(images) {
 
         img.onerror = function() {
             console.error(`✗ Image ${index + 1} failed to load: ${image}`);
-            this.style.backgroundColor = '#333';
-            this.style.display = 'flex';
-            this.style.alignItems = 'center';
-            this.style.justifyContent = 'center';
-            this.innerHTML = '<span style="color: white; text-align: center;">Image failed to load</span>';
+            this.style.display = 'none';
+            frame.style.backgroundColor = '#333';
+            frame.style.display = 'flex';
+            frame.style.alignItems = 'center';
+            frame.style.justifyContent = 'center';
+            frame.innerHTML = '<span style="color: white; text-align: center; padding: 24px;">Image failed to load</span>';
         };
 
-        sliderTrack.appendChild(img);
+        sliderTrack.appendChild(slide);
 
         // Create navigation dot for each slide
         const dot = document.createElement('button');
