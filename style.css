@@ -88,6 +88,17 @@ body {
     z-index: 1000;
 }
 
+/* Hide-on-scroll behaviour: slide nav up when scrolling down */
+.nav-container {
+    transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.32s ease;
+}
+
+.nav-container.nav-hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+}
+
 .glass-nav {
     background: var(--nav-bg);
     backdrop-filter: blur(20px);
@@ -610,7 +621,7 @@ h1 {
 
 .project-hero-image {
     width: 100%;
-    padding: 0 40px 80px 40px;
+    padding: 0 40px 40px 40px;
 }
 
 .full-width-image {
@@ -618,7 +629,6 @@ h1 {
     height: auto;
     object-fit: cover;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
     opacity: 0;
     transition: opacity 0.5s ease-out;
     display: block;
@@ -638,6 +648,8 @@ h1 {
 .slider-wrapper {
     position: relative;
     width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 .slider-track {
@@ -646,17 +658,32 @@ h1 {
     transition: transform 0.5s ease-out;
 }
 
+/* Each slide occupies the full viewport width (so translateX(%)-based navigation works)
+   but the visible banner image sits inside a centered frame sized to the image. */
+.slider-slide {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0px 10px;
+}
+
+.banner-frame {
+    display: inline-block;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
 .slider-image {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
-    object-fit: cover;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: 90vh;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease-out;
     display: block;
-    flex-shrink: 0;
-    margin-right: 10px;
 }
 
 .slider-image.loaded {
@@ -667,12 +694,12 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
     color: var(--accent-color);
     width: 48px;
     height: 48px;
-    border-radius: 50%;
+    border-radius: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -682,8 +709,7 @@ h1 {
 }
 
 .slider-button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .slider-button svg {
@@ -1214,6 +1240,10 @@ footer {
         padding: 0 20px 60px 20px;
     }
 
+    .slider-image {
+        max-height: none;
+    }
+
     .slider-button {
         width: 36px;
         height: 36px;
@@ -1336,6 +1366,10 @@ footer {
 
     .project-hero-image {
         padding: 0 15px 40px 15px;
+    }
+
+    .slider-image {
+        max-height: none;
     }
 
     .slider-button {
