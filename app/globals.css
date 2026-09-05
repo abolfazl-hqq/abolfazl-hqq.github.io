@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted-foreground: #858585;
+  --subtle-foreground: #555555;
+  --surface: #111111;
+  --divider: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 8rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  color: #fff;
+}
+
+@keyframes tech-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tech-marquee-slow {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floating-one {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floating-two {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes floating-three {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hero-tech-track {
+  animation: tech-marquee 34s linear infinite;
+}
+
+.hero-tech-track-slow {
+  animation: tech-marquee-slow 48s linear infinite;
+}
+
+.hero-float-one {
+  animation: floating-one 5s ease-in-out infinite;
+}
+
+.hero-float-two {
+  animation: floating-two 6s ease-in-out infinite;
+}
+
+.hero-float-three {
+  animation: floating-three 5.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-tech-track,
+  .hero-tech-track-slow,
+  .hero-float-one,
+  .hero-float-two,
+  .hero-float-three {
+    animation: none;
+  }
 }
