@@ -66,7 +66,7 @@ export default function Header() {
         <div className="relative flex w-full max-w-[1400px] items-center justify-center px-5 sm:px-8">
           {isProjectPage && (
             <Link
-              href="/#projects"
+              href="/"
               aria-label="Back to projects"
               title="Back to projects"
               className="absolute left-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.08] bg-[#111111]/90 text-white/80 backdrop-blur-xl transition hover:border-white/20 hover:text-white sm:left-8 lg:h-auto lg:w-auto lg:rounded-lg lg:px-5 lg:py-3"
@@ -92,18 +92,20 @@ export default function Header() {
           )}
 
           <nav
-            className="
+            className={`
               flex h-[72px] w-[554px]
                 max-w-[calc(100vw-32px)]
                 max-sm:h-11
                 max-sm:w-[calc(100vw-80px)]
+                ${isProjectPage ? "max-sm:ml-14" : ""}
               items-center justify-center
               rounded-full
               border border-white/[0.08]
               bg-[#111111]/90
               px-8
+              max-sm:px-3
               backdrop-blur-xl
-            "
+            `}
           >
             <ul className="flex w-full items-center justify-between">
               {links.map((link) => (
