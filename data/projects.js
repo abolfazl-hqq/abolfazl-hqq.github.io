@@ -26,7 +26,7 @@ export const projects = [
 
     liveUrl: "https://example.com",
 
-    githubUrl: "https://github.com/yourusername/trendbuy",
+    githubUrl: "https://github.com/abolfazl-hqq/trend_buy",
 
     overview: {
       title: "Project Overview",
@@ -130,7 +130,7 @@ export const projects = [
 
     liveUrl: "https://example.com",
 
-    githubUrl: "https://github.com/yourusername/cash-app",
+    githubUrl: "https://github.com/abolfazl-hqq/cash_app",
 
     overview: {
       title: "Project Overview",
@@ -193,7 +193,7 @@ export const projects = [
 
     liveUrl: "https://example.com",
 
-    githubUrl: "https://github.com/yourusername/clinic",
+    githubUrl: "https://github.com/abolfazl-hqq/clinic-project",
 
     overview: {
       title: "Project Overview",
@@ -202,6 +202,82 @@ export const projects = [
         "A personal portfolio designed to present projects, skills and experience in a simple and elegant way.",
 
       image: "/Clinic.png",
+    },
+
+    features: [
+      {
+        icon: "list",
+        title: "Product Discovery",
+        description:
+          "Easily discover best clinics.",
+      },
+      {
+        icon: "devices",
+        title: "Cross-Platform",
+        description:
+          "Responsive design for all devices and screen sizes.",
+      },
+      {
+        icon: "users",
+        title: "Team Collaboration",
+        description:
+          "see all the doctors and their information in one place.",
+      },
+      {
+        icon: "moon",
+        title: "Dark Mode",
+        description:
+          "A beautiful dark theme for comfortable usage.",
+      },
+    ],
+
+    technologies: [
+      {
+        name: "Next.js",
+        logo: "/logos/next.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "/logos/tailwind.svg",
+      },
+      {
+        name: "django",
+        logo: "/logos/django.svg",
+      }
+    ],
+
+    challenges: [],
+
+    learnings: [],
+
+    results: [],
+  },
+  {
+    slug: "architecture",
+
+    title: "Architecture Website",
+
+    subtitle: "A comprehensive solution for managing architectural projects.",
+
+    description:
+      "A modern architecture website built with Next.js and Tailwind CSS, designed to showcase designs and facilitate collaboration.",
+
+    tags: ["Web App", "NextJS", "Portfolio"],
+
+    cardImage: "/architecture-website.png",
+    heroImage: "/architecture-website.png",
+
+    liveUrl: "https://example.com",
+
+    githubUrl: "https://github.com/abolfazl-hqq/architecture-website",
+
+    overview: {
+      title: "Project Overview",
+
+      description:
+        "An architecture website designed to present projects, skills and experience in a simple and elegant way.",
+
+      image: "/architecture-website.png",
     },
 
     features: [
