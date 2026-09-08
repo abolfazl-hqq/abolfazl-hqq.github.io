@@ -288,18 +288,20 @@ export default function ProjectDetails({ project }) {
                 {project.technologies.map((technology) => (
                   <div
                     key={technology.name}
-                    className="flex items-center gap-4 rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.055] to-transparent px-6 py-5"
+                    className="tech-card flex items-center gap-4 rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.055] to-transparent px-6 py-5"
                   >
-                    {TechnologyIcon({ name: technology.name }) ||
-                      (technology.logo && (
-                        <Image
-                          src={technology.logo}
-                          alt={technology.name}
-                          width={40}
-                          height={40}
-                          className="h-9 w-9 object-contain"
-                        />
-                      ))}
+                    <span className="tech-card-icon flex h-10 w-10 shrink-0 items-center justify-center">
+                      {TechnologyIcon({ name: technology.name }) ||
+                        (technology.logo && (
+                          <Image
+                            src={technology.logo}
+                            alt={technology.name}
+                            width={40}
+                            height={40}
+                            className="h-9 w-9 object-contain"
+                          />
+                        ))}
+                    </span>
 
                     <span className="font-medium">
                       {technology.name}

@@ -114,29 +114,31 @@ export const projects = [
   },
 
   {
-    slug: "cash-app",
+    slug: "architecture",
 
-    title: "Cash App",
+    title: "Architecture Website",
 
-    subtitle: "A simple app for keeping track of daily spending.",
+    subtitle: "A comprehensive solution for managing architectural projects.",
 
     description:
-      "Cash App is a focused expense-tracking application designed to make daily spending easier to record and understand.",
+      "A modern architecture website built with Next.js and Tailwind CSS, designed to showcase designs and facilitate collaboration.",
 
-    tags: ["Mobile App", "Finance", "Flutter", "Personal Project"],
+    tags: ["Web App", "NextJS", "Portfolio"],
 
-    cardImage: "/Cash-app.png",
-    heroImage: "/Cash-app.png",
+    cardImage: "/architecture-website.png",
+    heroImage: "/architecture-website.png",
 
     liveUrl: "https://example.com",
 
-    githubUrl: "https://github.com/abolfazl-hqq/cash_app",
+    githubUrl: "https://github.com/abolfazl-hqq/architecture-website",
 
     overview: {
       title: "Project Overview",
+
       description:
-        "A lightweight expense tracker focused on quick entry, clear information, and a calm mobile experience.",
-      image: "/Cash-app.png",
+        "An architecture website designed to present projects, skills and experience in a simple and elegant way.",
+
+      image: "/architecture-website.png",
     },
 
     features: [
@@ -144,19 +146,19 @@ export const projects = [
         icon: "list",
         title: "Product Discovery",
         description:
-          "Easily discover trending products.",
+          "Easily discover best clinics.",
       },
       {
         icon: "devices",
         title: "Cross-Platform",
         description:
-          "Available on both Android and iOS using Flutter.",
+          "Responsive design for all devices and screen sizes.",
       },
       {
         icon: "users",
         title: "Team Collaboration",
         description:
-          "Work together with your team in real-time.",
+          "see all the doctors and their information in one place.",
       },
       {
         icon: "moon",
@@ -167,15 +169,26 @@ export const projects = [
     ],
 
     technologies: [
-      { name: "Flutter" },
-      { name: "Hive" },
-      { name: "Dart" },
+      {
+        name: "Next.js",
+        logo: "/logos/next.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "/logos/tailwind.svg",
+      },
+      {
+        name: "django",
+        logo: "/logos/django.svg",
+      }
     ],
+
     challenges: [],
+
     learnings: [],
+
     results: [],
   },
-
   {
     slug: "clinic",
 
@@ -252,32 +265,31 @@ export const projects = [
 
     results: [],
   },
+
   {
-    slug: "architecture",
+    slug: "cash-app",
 
-    title: "Architecture Website",
+    title: "Cash App",
 
-    subtitle: "A comprehensive solution for managing architectural projects.",
+    subtitle: "A simple app for keeping track of daily spending.",
 
     description:
-      "A modern architecture website built with Next.js and Tailwind CSS, designed to showcase designs and facilitate collaboration.",
+      "Cash App is a focused expense-tracking application designed to make daily spending easier to record and understand.",
 
-    tags: ["Web App", "NextJS", "Portfolio"],
+    tags: ["Mobile App", "Finance", "Flutter", "Personal Project"],
 
-    cardImage: "/architecture-website.png",
-    heroImage: "/architecture-website.png",
+    cardImage: "/Cash-app.png",
+    heroImage: "/Cash-app.png",
 
     liveUrl: "https://example.com",
 
-    githubUrl: "https://github.com/abolfazl-hqq/architecture-website",
+    githubUrl: "https://github.com/abolfazl-hqq/cash_app",
 
     overview: {
       title: "Project Overview",
-
       description:
-        "An architecture website designed to present projects, skills and experience in a simple and elegant way.",
-
-      image: "/architecture-website.png",
+        "A lightweight expense tracker focused on quick entry, clear information, and a calm mobile experience.",
+      image: "/Cash-app.png",
     },
 
     features: [
@@ -285,19 +297,19 @@ export const projects = [
         icon: "list",
         title: "Product Discovery",
         description:
-          "Easily discover best clinics.",
+          "Easily discover trending products.",
       },
       {
         icon: "devices",
         title: "Cross-Platform",
         description:
-          "Responsive design for all devices and screen sizes.",
+          "Available on both Android and iOS using Flutter.",
       },
       {
         icon: "users",
         title: "Team Collaboration",
         description:
-          "see all the doctors and their information in one place.",
+          "Work together with your team in real-time.",
       },
       {
         icon: "moon",
@@ -308,26 +320,17 @@ export const projects = [
     ],
 
     technologies: [
-      {
-        name: "Next.js",
-        logo: "/logos/next.svg",
-      },
-      {
-        name: "Tailwind CSS",
-        logo: "/logos/tailwind.svg",
-      },
-      {
-        name: "django",
-        logo: "/logos/django.svg",
-      }
+      { name: "Flutter" },
+      { name: "Hive" },
+      { name: "Dart" },
     ],
-
     challenges: [],
-
     learnings: [],
-
     results: [],
   },
+
+  
+  
 ];
 
 export function getProjectBySlug(slug) {

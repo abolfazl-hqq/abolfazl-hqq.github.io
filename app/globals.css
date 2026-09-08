@@ -112,6 +112,91 @@ h2 {
   animation: floating-three 5.5s ease-in-out infinite;
 }
 
+.skill-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 400ms ease, border-color 400ms ease, box-shadow 400ms ease;
+}
+
+.skill-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 30%, transparent 68%);
+  opacity: 0;
+  transform: scale(0.15);
+  transition: opacity 500ms ease, transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-card:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 45px rgba(0, 0, 0, 0.28);
+  transform: translateY(-8px);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+  transform: scale(2.2);
+}
+
+.skill-icon-panel {
+  transition: border-color 400ms ease, background 500ms ease;
+}
+
+.skill-icon {
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+}
+
+.skill-card:hover .skill-icon-panel {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03) 58%, transparent 100%);
+}
+
+.skill-card:hover .skill-icon {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
+  transform: scale(1.08);
+}
+
+.tech-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 350ms ease, border-color 350ms ease, box-shadow 350ms ease;
+}
+
+.tech-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.14), transparent 58%);
+  opacity: 0;
+  transform: translateX(-12%);
+  transition: opacity 350ms ease, transform 500ms ease;
+}
+
+.tech-card:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 36px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tech-card-icon {
+  transition: filter 350ms ease, transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tech-card:hover .tech-card-icon {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.28));
+  transform: scale(1.1) rotate(-3deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -123,5 +208,15 @@ h2 {
   .hero-float-two,
   .hero-float-three {
     animation: none;
+  }
+
+  .skill-card,
+  .skill-card::before,
+  .skill-icon-panel,
+  .skill-icon,
+  .tech-card,
+  .tech-card::before,
+  .tech-card-icon {
+    transition: none;
   }
 }

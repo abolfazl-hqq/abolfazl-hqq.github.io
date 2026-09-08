@@ -126,7 +126,7 @@ export default function Footer() {
             links={[
               {
                 label: "GitHub",
-                href: "https://github.com/yourusername",
+                href: "https://github.com/abolfazl-hqq",
                 external: true,
               },
               {

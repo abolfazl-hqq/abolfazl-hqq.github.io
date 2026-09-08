@@ -85,10 +85,10 @@ export default function Skills() {
           {skills.map((skill) => (
             <article
               key={skill.title}
-              className="rounded-[30px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(18,18,18,0.92),rgba(10,10,10,0.92))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6"
+              className="skill-card rounded-[30px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(18,18,18,0.92),rgba(10,10,10,0.92))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6"
             >
-              <div className="mb-8 flex h-[150px] items-center justify-center rounded-[22px] border border-white/[0.05] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_50%,transparent_100%)] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                <div className="flex items-center justify-center text-white/90">{skill.icon}</div>
+              <div className="skill-icon-panel mb-8 flex h-[150px] items-center justify-center rounded-[22px] border border-white/[0.05] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_50%,transparent_100%)] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <div className="skill-icon flex items-center justify-center text-white/90">{skill.icon}</div>
               </div>
 
               <h3 className="text-white font-bold text-3xl">
