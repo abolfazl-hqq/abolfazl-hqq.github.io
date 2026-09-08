@@ -9,9 +9,10 @@ const techIcons = [
     <ellipse cx="40" cy="40" rx="30" ry="11" fill="none" strokeWidth="4" transform="rotate(120 40 40)" />
     <circle cx="40" cy="40" r="6" />
   </svg>,
-  <svg key="ts" viewBox="0 0 65 65" className="h-full w-full">
-    <rect x="10" y="10" width="60" height="60" rx="4" />
-    <text x="48" y="58" textAnchor="middle" fontSize="25" fontWeight="900" fill="black">TS</text>
+  <svg key="flutter" viewBox="0 0 80 80" className="h-full w-full">
+    <path d="M14 40 42 12h24L26 52Z" />
+    <path d="m26 58 12-12h28L42 70Z" />
+    <path d="m38 46 12-12h16L54 46Z" />
   </svg>,
   <svg key="code" viewBox="0 0 80 80" className="h-full w-full">
     <path d="M30 24 14 40l16 16M50 24l16 16-16 16M45 15 34 65" fill="none" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
